@@ -1,4 +1,4 @@
-package de.welcz.hipstertdd
+package de.welcz.hipstertdd.helpers
 
 import arrow.core.Either
 import arrow.core.raise.either
