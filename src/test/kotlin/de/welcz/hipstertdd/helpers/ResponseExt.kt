@@ -1,4 +1,4 @@
-package de.welcz.hipstertdd
+package de.welcz.hipstertdd.helpers
 
 import io.kotest.assertions.json.shouldEqualJson
 import io.kotest.matchers.nulls.shouldNotBeNull
