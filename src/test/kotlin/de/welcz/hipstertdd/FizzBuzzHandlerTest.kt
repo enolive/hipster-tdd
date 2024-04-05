@@ -1,6 +1,7 @@
 package de.welcz.hipstertdd
 
 import com.ninjasquad.springmockk.MockkBean
+import de.welcz.hipstertdd.helpers.shouldHaveJsonBody
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.property.azstring

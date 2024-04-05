@@ -1,6 +1,5 @@
 package de.welcz.hipstertdd.helpers
 
-import de.welcz.hipstertdd.shouldHaveJsonBody
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest
