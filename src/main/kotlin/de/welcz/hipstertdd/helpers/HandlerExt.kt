@@ -3,7 +3,6 @@ package de.welcz.hipstertdd.helpers
 import arrow.core.Either
 import arrow.core.raise.either
 import arrow.core.raise.ensureNotNull
-import arrow.core.right
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.bodyValueAndAwait
@@ -19,7 +18,7 @@ fun ServerRequest.extractNumberFromPath(pathVariable: String) = either {
 
 suspend fun Any.responseOk() = ServerResponse.ok().bodyValueAndAwait(this)
 
-private suspend fun RequestError.responseError() = when (this) {
+suspend fun RequestError.responseError() = when (this) {
   is InvalidNumber -> ServerResponse.badRequest().bodyValueAndAwait(this)
 }
 
@@ -27,7 +26,7 @@ data class InvalidNumber(val pathVariable: String) : RequestError("not a valid n
 sealed class RequestError(@Suppress("unused") val message: String)
 
 fun ServerRequest.extractNumberFromQuery(queryVariable: String, defaultValue: Int) = either {
-  val limit = queryParamOrNull(queryVariable) ?: return defaultValue.right()
+  val limit = queryParamOrNull(queryVariable) ?: return@either defaultValue
   val limitAsNumber = limit.toIntOrNull()
   ensureNotNull(limitAsNumber) { InvalidNumber(queryVariable) }
 }
