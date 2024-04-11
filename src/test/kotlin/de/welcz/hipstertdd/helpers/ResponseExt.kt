@@ -7,7 +7,7 @@ import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.test.web.reactive.server.expectBody
 
 fun WebTestClient.ResponseSpec.shouldHaveJsonBody(@Language("json") expectedJson: String) {
-  expectBody<String>().consumeWith {
-    it.responseBody.shouldNotBeNull() shouldEqualJson expectedJson
+  expectBody<String>().value {
+    it.shouldNotBeNull() shouldEqualJson expectedJson
   }
 }
