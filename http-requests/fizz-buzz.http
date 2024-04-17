@@ -1,5 +1,8 @@
 ### get single fizz-buzz number
 GET http://localhost:8080/fizz-buzz/42
 
+### get sequence of fizz-buzz numbers up to the specified limit
+GET http://localhost:8080/fizz-buzz?limit=15
+
 ### get sequence of fizz-buzz numbers from 1..100
-GET http://localhost:8080/fizz-buzz?limit=15xxx
+GET http://localhost:8080/fizz-buzz
